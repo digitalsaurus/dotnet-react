@@ -1,3 +1,17 @@
+# Visual Studio
+*.swp
+*.*~
+bin/
+obj/
+project.lock.json
+.DS_Store
+*.suo
+.vs/
+*.xproj.user
+*.TMP
+*.orig
+*.user
+
 # Logs
 logs
 *.log
@@ -57,4 +71,5 @@ typings/
 # dotenv environment variables file
 .env
 
-/wwwroot/dist
+# Application files
+**/wwwroot/dist
