@@ -21,5 +21,5 @@ const defaultServerRenderer = (Element: any, name: string) => createServerRender
 import  App from './_App';
 
 module.exports = {
-  App: defaultServerRenderer(<App />, 'app')
+  App: defaultServerRenderer(App, 'app')
 }
