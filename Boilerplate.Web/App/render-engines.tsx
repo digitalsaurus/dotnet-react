@@ -43,6 +43,8 @@ export function hydrateReduxRouterEngine(Component: any, configureStore: StoreCo
     const props = (window as any)[propsName || camelize(elementName)];
     const store = configureStore(history, props);
 
+    console.log(store);
+
     ReactDOM.hydrate(
       <Provider store={store}>
         <ConnectedRouter history={history}>
@@ -50,20 +52,19 @@ export function hydrateReduxRouterEngine(Component: any, configureStore: StoreCo
         </ConnectedRouter>
       </Provider>,
       element);
-    ReactDOM.hydrate(<Component {...props} />, element);
   }
 }
 
 export const reduxRouterServerEngine = (Element: any, configureStore: StoreConfiguration, name: string) => createServerRenderer(params => {
-  const globals: Globals = {};
-  globals[name] = params.data;
-
   return new Promise<RenderResult>((resolve, reject) => {
 
     const basename = params.baseUrl.substring(0, params.baseUrl.length - 1); // Remove trailing slash
     const urlAfterBasename = params.url.substring(basename.length);
     const store = configureStore(createMemoryHistory());
     store.dispatch(replace(urlAfterBasename));
+
+    const globals: Globals = {};
+    globals[name] = store.getState();
 
     const routerContext: any = {};
     const app = (

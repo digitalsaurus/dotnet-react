@@ -1,18 +1,16 @@
 import * as React from 'react';
+import { Route } from 'react-router-dom';
+import { Layout } from './components/Layout';
+import Home from './components/Home';
+import FetchData from './components/FetchData';
+import Counter from './components/Counter';
 
-interface BaseProps {
-  input: string;
-}
+const App: React.SFC = (props) => (
+  <Layout>
+    <Route exact path='/' component={Home} />
+    <Route path='/counter' component={Counter} />
+    <Route path='/fetchdata/:startDateIndex?' component={FetchData} />
+  </Layout>
+);
 
-export default class App extends React.Component<BaseProps> {
-  static defaultProps: Partial<BaseProps> = {
-    input: "This is the default input text."
-  }
-  render() {    
-    return (
-      <div>
-        {this.props.input}
-      </div>
-    );
-  }
-}
+export default App;
