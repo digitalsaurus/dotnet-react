@@ -1,9 +1,9 @@
 {
-  "name": "react-typescript-boilerplate",
+  "name": "dotnet-react",
   "version": "1.0.0",
   "author": "Tom McKinney, Elyption",
   "private": false,
-  "repository": "https://github.com/digitalsaurus/react-typescript-boilerplate.git",
+  "repository": "https://github.com/digitalsaurus/dotnet-react.git",
   "dependencies": {
     "@types/d3": "^4.11.0",
     "@types/history": "^4.6.1",
