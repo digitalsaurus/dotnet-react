@@ -50,11 +50,10 @@
     "webpack-merge": "^4.1.1"
   },
   "scripts": {
+    "init": "npm run webpack && npm run sass",
+    "webpack": "webpack -p",
+    "webpack-watch": "webpack -w",
     "sass": "node-sass Assets/sass/Site.scss > wwwroot/dist/site.css && postcss wwwroot/dist/site.css > wwwroot/dist/site.min.css -c postcss.config.js",
-    "sass-watch": "node-sass -w Assets/sass/Site.scss > wwwroot/dist/site.css",
-    "build": "npm run build-client && npm run build-server",
-    "build-client": "webpack -p",
-    "build-server": "webpack -p --config webpack.config.server.ts",
-    "watch-client": "webpack -w"
+    "sass-watch": "node-sass -w Assets/sass/Site.scss > wwwroot/dist/site.css"
   }
 }
