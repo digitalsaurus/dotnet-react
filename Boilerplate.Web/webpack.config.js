@@ -1,13 +1,12 @@
-import * as webpack from 'webpack';
-import * as path from 'path';
-import { TsConfigPathsPlugin, CheckerPlugin } from 'awesome-typescript-loader';
-
+const webpack = require('webpack');
 const merge = require('webpack-merge');
+const path = require('path');
+const { TsConfigPathsPlugin, CheckerPlugin } = require('awesome-typescript-loader');
 
-module.exports = (env: any) => {
+module.exports = (env) => {
   const isDevBuild = process.argv.indexOf('-p') < 0;
 
-  const sharedConfig: webpack.Configuration = ({
+  const sharedConfig = ({
     context: path.resolve(__dirname, './App'),
     stats: {
       modules: false,
@@ -31,7 +30,7 @@ module.exports = (env: any) => {
     },
   });
 
-  const clientBundleConfig: webpack.Configuration = merge(sharedConfig, {
+  const clientBundleConfig = merge(sharedConfig, {
     entry: {
       'client': './boot-client.tsx'
     },
@@ -40,7 +39,7 @@ module.exports = (env: any) => {
     }
   });
 
-  const serverBundleConfig: webpack.Configuration = merge(sharedConfig, {
+  const serverBundleConfig = merge(sharedConfig, {
     entry: {
       'server': './boot-server.tsx'
     },
