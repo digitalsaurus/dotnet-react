@@ -36,6 +36,18 @@ module.exports = (env) => {
     },
     output: {
       path: path.resolve(__dirname, './wwwroot/dist')
+    },
+    module: {
+      rules: [{
+          test: /\.scss$/,
+          use: [{
+              loader: "style-loader" // creates style nodes from JS strings
+          }, {
+              loader: "css-loader" // translates CSS into CommonJS
+          }, {
+              loader: "sass-loader" // compiles Sass to CSS
+          }]
+      }]
     }
   });
 
@@ -50,7 +62,13 @@ module.exports = (env) => {
       path: path.resolve(__dirname, './wwwroot/dist')
     },
     target: 'node',
-    devtool: 'inline-source-map'
+    devtool: 'inline-source-map',
+    module: {
+      rules: [{
+          test: /\.scss$/,
+          loader: 'ignore-loader'
+      }]
+    }
   });
 
   return [clientBundleConfig, serverBundleConfig];
