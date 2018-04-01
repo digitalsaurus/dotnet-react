@@ -72,4 +72,7 @@ typings/
 .env
 
 # Application files
-**/wwwroot/dist
+**/wwwroot/dist/
+.vscode/
+reports/
+debug.log
