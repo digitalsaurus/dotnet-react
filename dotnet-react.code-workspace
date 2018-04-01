@@ -5,6 +5,9 @@
 		},
 		{
 			"path": "test\\Frontend.Tests"
+		},
+		{
+			"path": "Boilerplate.Web"
 		}
 	],
 	"settings": {}
