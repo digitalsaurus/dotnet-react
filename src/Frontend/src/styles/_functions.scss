@@ -1,0 +1,11 @@
+@function to-pixels($rem-value) {
+  @return strip-unit($rem-value) * $rem-base;
+}
+
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+      @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}

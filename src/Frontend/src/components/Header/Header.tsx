@@ -4,6 +4,14 @@ import './Header.css';
 
 const Header: React.SFC = () => (
   <header className="site-header">
+    <div className="site-header__navbar">
+      <a href="#" className="site-header__navbar__logo">Dotnet-React</a>
+      <nav>
+        <Link to="/">Home</Link>
+        <Link to="/dogs">Dogs</Link>
+        <Link to="/dog/monroe">Monroe</Link>
+      </nav>
+    </div>
     <nav className="site-header__navbar navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
       <div className="container">
 

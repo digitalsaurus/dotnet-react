@@ -1,0 +1,6 @@
+@mixin fading-link($color: $white, $opacity: 0.8) {
+  color: rgba($color, $opacity);
+  @include hover-focus {
+    color: $color;
+  }
+}

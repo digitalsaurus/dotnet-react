@@ -1,0 +1,170 @@
+@import "./mixins/hover";
+@import "./mixins/links";
+
+@mixin media-max($breakpoint) {
+  @if map-haskey($grid-breakpoints, $breakpoint) {
+      @media (max-width: #{map-get($grid-breakpoints, $breakpoint) - 1}) {
+          @content;
+      }
+  }
+}
+
+@mixin media-min($breakpoint) {
+  @if map-haskey($grid-breakpoints, $breakpoint) {
+      @media (min-width: #{map-get($grid-breakpoints, $breakpoint)}) {
+          @content;
+      }
+  }
+}
+
+@mixin all-headers() {
+  @for $i from 1 through 6 {
+      h#{$i} {
+          @content;
+      }
+  }
+}
+
+@mixin make-custom-container($ratio: 0.70) {
+  $custom-container-max-widths: ();
+
+  @each $size, $width in $container-max-widths {
+      $custom-container-max-widths: map-merge($custom-container-max-widths, ($size: ($width * $ratio)));
+  }
+
+  @include make-container-max-widths($custom-container-max-widths);
+}
+
+@mixin theme-transition($properties...) {
+  @if length($properties) <= 0 {
+      transition: $transition-base;
+  }
+  @else {
+      $allTransitions: ();
+
+      @each $prop in $properties {
+          @if type-of($prop) == 'map' {
+              @each $mapProp, $mapDuration in $prop {
+                  $allTransitions: append($allTransitions, $mapProp $mapDuration ease-in-out, comma);
+              }
+          }
+          @else if type-of($prop) == 'string' {
+              $allTransitions: append($allTransitions, $prop $transition-duration ease-in-out, comma);
+          }
+      }
+
+      transition: if(length($allTransitions) > 0, $allTransitions, $transition-base);
+  }
+}
+
+@mixin custom-scrollbar($scrollbarColor: #000, $scrollbarOpacity: 0.2) {
+  &::-webkit-scrollbar {
+      width: 14px;
+      height: 18px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+      height: 60px;
+      border: 3px solid rgba(0, 0, 0, 0);
+      background-clip: padding-box;
+      border-radius: 7px;
+      background-color: rgba($scrollbarColor, $scrollbarOpacity);
+      box-shadow: inset -1px -1px 0px rgba(0, 0, 0, 0.05), inset 1px 1px 0px rgba(0, 0, 0, 0.05);
+  }
+
+  &::-webkit-scrollbar-button {
+      width: 0;
+      height: 0;
+      display: none;
+  }
+
+  &::-webkit-scrollbar-corner {
+      background-color: transparent;
+  }
+}
+
+@mixin triangle-top($color: $brand-primary, $height: $spacer, $width: $spacer) {
+  border-style: solid;
+  border-width: 0 ($width / 2) $height ($width / 2);
+  border-color: transparent transparent $color transparent;
+}
+
+@mixin keyframes($animationName) {
+  @-webkit-keyframes #{$animationName} {
+      @content;
+  }
+
+  @-moz-keyframes #{$animationName} {
+      @content;
+  }
+
+  @-o-keyframes #{$animationName} {
+      @content;
+  }
+
+  @keyframes #{$animationName} {
+      @content;
+  }
+}
+
+@mixin animate($name, $duration, $iteration, $direction) {
+  -webkit-animation-duration: $duration;
+  -moz-animation-duration: $duration;
+  -o-animation-duration: $duration;
+  animation-duration: $duration;
+  -webkit-animation-iteration-count: $iteration;
+  -moz-animation-iteration-count: $iteration;
+  -o-animation-iteration-count: $iteration;
+  animation-iteration-count: $iteration;
+  -webkit-animation-name: $name;
+  -moz-animation-name: $name;
+  -o-animation-name: $name;
+  animation-name: $name;
+  -webkit-animation-direction: $direction;
+  -moz-animation-direction: $direction;
+  -o-animation-direction: $direction;
+  animation-direction: $direction;
+}
+
+@mixin make-arrow($inside-color: $white, $outside-color: $dropdown-border-color, $width: 10px) {
+  $outer-width: $width + 1px;
+
+  &::before,
+  &::after {
+      position: absolute;
+      display: block;
+      width: 0;
+      height: 0;
+      border-color: transparent;
+      border-style: solid;
+  }
+
+  &::before {
+      content: "";
+      border-width: $outer-width;
+  }
+
+  &::after {
+      content: "";
+      border-width: $width;
+  }
+
+  // Top Arrow
+  &::before,
+  &::after {
+      left: 50%;
+      border-top-width: 0;
+  }
+
+  &::before {
+      top: -$outer-width;
+      margin-left: -$outer-width;
+      border-bottom-color: $outside-color;
+  }
+
+  &::after {
+      top: -($outer-width - 1);
+      margin-left: -$width;
+      border-bottom-color: $inside-color;
+  }
+}
