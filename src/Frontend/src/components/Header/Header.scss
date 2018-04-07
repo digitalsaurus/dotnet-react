@@ -15,9 +15,20 @@
     color: gray(100);
     // z-index: $zindex-fixed;
 
+    .container {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
     &__logo {
-      margin-right: auto;
       @include fading-link;
+      @include hover-focus {
+        text-decoration: none;
+      }
+      font-size: 1.25rem;
+      margin-right: auto;
     }
 
     nav {
