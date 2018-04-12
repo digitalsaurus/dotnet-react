@@ -37,7 +37,6 @@
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "node-sass-chokidar": "^1.2.2",
-    "sass-lint": "^1.12.1",
     "typescript": "^2.8.1"
   }
 }

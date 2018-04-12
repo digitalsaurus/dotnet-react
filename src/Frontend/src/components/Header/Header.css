@@ -10,6 +10,11 @@
     flex-flow: row nowrap;
     align-items: center;
     justify-content: flex-end; }
+  .site-header__navbar .container {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-end; }
   .site-header__navbar__logo {
     color: rgba(255, 255, 255, 0.8);
     font-size: 1.25rem;
