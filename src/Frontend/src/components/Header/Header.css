@@ -1,15 +1,11 @@
 .site-header__navbar {
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  justify-content: flex-end;
   top: 0;
   left: 0;
   right: 0;
   padding-top: 0.7rem;
   padding-bottom: 0.7rem;
   background: #343a40; }
-  .site-header__navbar .container {
+  .site-header__navbar, .site-header__navbar .container {
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
@@ -35,3 +31,5 @@
         color: #fff; }
       .site-header__navbar nav a:hover, .site-header__navbar nav a:focus {
         text-decoration: none; }
+      .site-header__navbar nav a.active {
+        color: #fff; }

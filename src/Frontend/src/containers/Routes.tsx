@@ -1,16 +1,22 @@
 import * as React from 'react';
-import { Route, Switch } from 'react-router';
+import { Route, Switch, RouteProps } from 'react-router';
 
 import Home from './Home/Home';
 import DogList from './DogList/DogList';
 import DogProfile from './DogProfile/DogProfile';
 
+export const RouteWithContainer = (props: RouteProps) => (
+  <div className="container">
+    <Route {...props} />
+  </div>
+);
+
 const Routes = () => (
   <main className="site-main">
     <Switch>
-      <Route exact={true} path="/" component={Home} />
-      <Route exact={true} path="/dogs" component={DogList} />
-      <Route exact={true} path="/dog/:dog" component={DogProfile} />
+      <RouteWithContainer exact={true} path="/" component={Home} />
+      <RouteWithContainer exact={true} path="/dogs" component={DogList} />
+      <RouteWithContainer exact={true} path="/dog/:dog" component={DogProfile} />
     </Switch>
   </main>
 );

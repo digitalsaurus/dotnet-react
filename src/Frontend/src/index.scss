@@ -1,4 +1,4 @@
-@import "./styles/overrides";
+@import "styles/base";
 @import "bootstrap/scss/bootstrap";
 
 $footer-height: 8rem;
@@ -24,6 +24,7 @@ body,
       content: "";
       display: block;
       height: $footer-height;
+      margin-top: $footer-margin;
     }
   }
 

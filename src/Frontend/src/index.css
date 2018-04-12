@@ -6054,7 +6054,8 @@ body,
   .viewport__content:after {
     content: "";
     display: block;
-    height: 8rem; }
+    height: 8rem;
+    margin-top: 3rem; }
 
 .viewport__footer {
   height: 8rem;
