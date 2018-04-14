@@ -5,6 +5,7 @@
   top: 0;
   left: 0;
   right: 0;
+  z-index: $zindex-fixed;
 
   &__navbar {
     &, & .container {
@@ -21,7 +22,6 @@
     padding-bottom: 0.7rem;
     background: gray('800');
     color: gray(100);
-    // z-index: $zindex-fixed;
 
     .container {
       display: flex;

@@ -1,9 +1,29 @@
 .jumbo-slider {
   display: flex;
-  flex-flow: row nowrap;
-  align-items: stretch;
-  overflow: hidden; }
-  .jumbo-slider figure {
-    display: inline-block;
-    width: 100%;
-    overflow: hidden; }
+  margin: auto;
+  padding: 0;
+  align-items: stretch; }
+  .jumbo-slider__scroller {
+    flex: 1;
+    margin: 0;
+    overflow: hidden;
+    padding: 0; }
+    .jumbo-slider__scroller ul {
+      display: flex;
+      flex-flow: row nowrap;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      transition: transform 1s ease-in-out; }
+      .jumbo-slider__scroller ul li {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: center;
+        flex: 1 0 100%;
+        height: 250px;
+        width: 100%;
+        margin: 0;
+        overflow: hidden; }
+        .jumbo-slider__scroller ul li img {
+          width: 100%; }
