@@ -6,37 +6,60 @@ export interface Slide {
 }
 
 export interface JumboSliderProps {
-  slides?: Slide[];
+  slides: Slide[];
 }
 
-export default class JumboSlider extends React.Component<JumboSliderProps> {
-  public static defaultProps: Partial<JumboSliderProps> = {
-    slides: []
-  };
+export interface JumboSlideState {
+  activeSlide: number;
+}
+
+export default class JumboSlider extends React.Component<JumboSliderProps, JumboSlideState> {
+  state = {
+    activeSlide: 0
+  };  
+  constructor(props: JumboSliderProps) {
+    super(props);
+
+    this.moveLeft = this.moveLeft.bind(this);
+    this.moveRight = this.moveRight.bind(this);
+    this.calculateTransform = this.calculateTransform.bind(this);
+
+    for (const i in props.slides) {
+      if (props.slides.hasOwnProperty(i)) {
+        this[`slide${i}`] = React.createRef();
+      }
+    }
+  }
+  moveLeft() {
+    const { activeSlide } = this.state;
+    if (activeSlide > 0) {
+      this.setState({ activeSlide: this.state.activeSlide - 1 });
+    }
+  }
+  moveRight() {
+    const { activeSlide } = this.state;
+    if (activeSlide < this.props.slides.length - 1) {
+      this.setState({ activeSlide: activeSlide + 1 });
+    }
+  }
+  calculateTransform() {
+    const test = '';
+  }
   render() {
+    const transform = this.calculateTransform();
     return (
       <section className="jumbo-slider">
         <div className="jumbo-slider__scroller">
+          <button type="button" className="jumbo-slider__scroller__button--left" onClick={this.moveLeft}>Left</button>
           <ul>
-            {this.props.slides && this.props.slides.map((slide, i) => (
+            {this.props.slides.map((slide, i) => (
               <li key={i}>
                 <img src={slide.image} />
               </li>
             ))}
           </ul>
+          <button type="button" className="jumbo-slider__scroller__button--right" onClick={this.moveRight}>Right</button>
         </div>
-        {/* {this.props.slides && this.props.slides.map((slide, i) => (
-          <figure key={i}>
-            <img src={slide.image} />
-          </figure>
-        ))} */}
-        {/* <ul className="jumbo-slider__slide-list">
-          {this.props.slides && this.props.slides.map((slide, i) => (
-            <li key={i}>
-              <img src={slide.image} />
-            </li>
-          ))}
-        </ul> */}
       </section>
     );
   }
