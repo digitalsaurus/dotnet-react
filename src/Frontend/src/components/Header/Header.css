@@ -1,40 +1,46 @@
-.site-header__navbar {
+.site-header {
+  position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  padding-top: 0.7rem;
-  padding-bottom: 0.7rem;
-  background: #343a40; }
-  .site-header__navbar, .site-header__navbar .container {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: flex-end; }
-  .site-header__navbar .container {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: flex-end; }
-  .site-header__navbar__logo {
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 1.25rem;
-    margin-right: auto; }
-    .site-header__navbar__logo:hover, .site-header__navbar__logo:focus {
-      color: #fff; }
-    .site-header__navbar__logo:hover, .site-header__navbar__logo:focus {
-      text-decoration: none; }
-  .site-header__navbar nav {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: flex-end; }
-    .site-header__navbar nav a {
-      display: block;
-      padding: 0.5rem;
-      color: rgba(255, 255, 255, 0.8); }
-      .site-header__navbar nav a:hover, .site-header__navbar nav a:focus {
+  right: 0; }
+  .site-header__navbar {
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 64px;
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+    background: #343a40; }
+    .site-header__navbar, .site-header__navbar .container {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: flex-end; }
+    .site-header__navbar .container {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: flex-end; }
+    .site-header__navbar__logo {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 1.25rem;
+      margin-right: auto; }
+      .site-header__navbar__logo:hover, .site-header__navbar__logo:focus {
         color: #fff; }
-      .site-header__navbar nav a:hover, .site-header__navbar nav a:focus {
+      .site-header__navbar__logo:hover, .site-header__navbar__logo:focus {
         text-decoration: none; }
-      .site-header__navbar nav a.active {
-        color: #fff; }
+    .site-header__navbar nav {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: flex-end; }
+      .site-header__navbar nav a {
+        display: block;
+        padding: 0.5rem;
+        color: rgba(255, 255, 255, 0.8); }
+        .site-header__navbar nav a:hover, .site-header__navbar nav a:focus {
+          color: #fff; }
+        .site-header__navbar nav a:hover, .site-header__navbar nav a:focus {
+          text-decoration: none; }
+        .site-header__navbar nav a.active {
+          color: #fff; }

@@ -1,6 +1,11 @@
 @import "styles/base";
 
 .site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
   &__navbar {
     &, & .container {
       display: flex;
@@ -11,6 +16,7 @@
     top: 0;
     left: 0;
     right: 0;
+    height: $header-nav-height;
     padding-top: 0.7rem;
     padding-bottom: 0.7rem;
     background: gray('800');

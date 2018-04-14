@@ -1,8 +1,6 @@
 @import "styles/base";
 @import "bootstrap/scss/bootstrap";
 
-$footer-height: 8rem;
-
 html,
 body,
 #app-root {
@@ -15,6 +13,13 @@ body,
 
 .viewport {
   @extend #app-root;
+
+  &:before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: $header-nav-height;
+  }
 
   &__content {
     min-height: 100%;
