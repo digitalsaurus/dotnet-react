@@ -1,11 +1,15 @@
 import * as React from 'react';
+import JumboSlider from 'components/JumboSlider/JumboSlider';
 
 const Home = () => (
   <div>
-    {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> */}
+    <JumboSlider
+      slides={[
+        { image: 'https://farm3.staticflickr.com/2914/14185397280_e51c40b1df_b.jpg' },
+        { image: 'https://farm6.staticflickr.com/5076/14164379250_71c3a5b32a_b.jpg' },
+        { image: 'https://farm3.staticflickr.com/2937/14371160993_186df4a083_b.jpg' }
+      ]}
+    />
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu aliquet tortor. Etiam nec ante nisl. Morbi at sodales felis. Proin et nisi tincidunt, bibendum nulla ut, bibendum metus. In eu arcu posuere, commodo risus interdum, aliquet nibh. Nam nec iaculis libero. Sed quis neque id urna tempus iaculis. Aliquam gravida eros eu elit mattis, sed fringilla sem vestibulum. Vivamus molestie ac orci non fringilla. Ut ultricies et tellus in consequat. Nunc euismod felis sem, at congue nisi blandit volutpat. Praesent non pulvinar turpis. Nullam aliquam congue augue, vel molestie mauris accumsan in.
 
 Sed vitae iaculis felis, in imperdiet mauris. Donec sit amet eleifend mi. Pellentesque maximus nunc a sem commodo, vel ornare nibh elementum. Vestibulum gravida augue eu odio dapibus finibus. Nam elementum mauris eu pharetra malesuada. Sed finibus tortor augue, ut elementum augue venenatis id. Suspendisse dapibus eros magna, eget finibus tortor sodales a. Vestibulum a enim sed arcu volutpat congue. Integer ullamcorper justo consequat erat scelerisque ultricies. Mauris tincidunt tortor sed nisl elementum rhoncus. Integer bibendum diam ut diam laoreet ornare. Curabitur semper sapien elit, in tempus ligula convallis vitae. Integer fringilla laoreet odio, eget fermentum tellus. Proin metus risus, dictum id ornare ultrices, consequat sed lacus. Praesent semper faucibus sapien eu placerat. Sed facilisis varius quam, et facilisis massa tincidunt molestie.

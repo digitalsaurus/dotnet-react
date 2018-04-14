@@ -1,0 +1,14 @@
+@import "styles/base";
+
+.jumbo-slider {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: stretch;
+  overflow: hidden;
+
+  figure {
+    display: inline-block;
+    width: 100%;
+    overflow: hidden;
+  }
+}

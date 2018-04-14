@@ -1,0 +1,9 @@
+.jumbo-slider {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: stretch;
+  overflow: hidden; }
+  .jumbo-slider figure {
+    display: inline-block;
+    width: 100%;
+    overflow: hidden; }

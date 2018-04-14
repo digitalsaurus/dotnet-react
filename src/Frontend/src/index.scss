@@ -13,17 +13,17 @@ body,
 
 .viewport {
   @extend #app-root;
-
-  &:before {
-    content: '';
-    display: block;
-    width: 100%;
-    height: $header-nav-height;
-  }
-
+  
   &__content {
     min-height: 100%;
     margin-bottom: -$footer-height;
+
+    &:before {
+      content: '';
+      display: block;
+      width: 100%;
+      height: $header-nav-height;
+    }
 
     &:after {
       content: "";
