@@ -69,3 +69,11 @@ it('will display only the active slide', () => {
 
   expect(wrapper.find('.jumbo-slider__scroller ul').prop('style')).toEqual({'transform': 'translate3d(-1000px, 0px, 0px)'});
 });
+
+// TODO: find way to simulate window resize
+// it('adjusts the slide width when the browser is resized', () => {
+//   const setSlideWidth = jest.spyOn(JumboSlider.prototype, 'setSlideWidth');
+//   const wrapper = mount(<JumboSlider slides={slides} />);
+
+//   expect(setSlideWidth).toHaveBeenCalled();
+// });

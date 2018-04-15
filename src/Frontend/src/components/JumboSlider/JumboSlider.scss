@@ -9,6 +9,7 @@ $slide-height: 250px;
   align-items: stretch;
 
   &__scroller {
+    position: relative;
     flex: 1;
     margin: 0;
     overflow: hidden;
@@ -35,6 +36,36 @@ $slide-height: 250px;
 
         img {
           width: 100%;
+        }
+      }
+    }
+
+    $button-diameter: 50px;
+
+    &__button {
+      position: absolute;
+      top: 50%;
+      margin-top: -($button-diameter / 2);
+      z-index: 100;
+      height: $button-diameter;
+      width: $button-diameter;
+      padding: 0;
+      border: none;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.7);
+      color: $white;
+      font-family: monospace;
+
+      &--left {
+        left: 1.5rem;
+        &:before {
+          content: '<';
+        }
+      }
+      &--right {
+        right: 1.5rem;
+        &:before {
+          content: '>';
         }
       }
     }
