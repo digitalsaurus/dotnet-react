@@ -9,13 +9,6 @@ const slides = [
   { image: 'https://farm3.staticflickr.com/2937/14371160993_186df4a083_b.jpg' }
 ];
 
-it('will display only the active slide', () => {
-  const calculateTransform = jest.spyOn(JumboSlider.prototype, 'calculateTransform');
-  const wrapper = mount(<JumboSlider slides={slides} />);
-
-  expect(calculateTransform).toHaveBeenCalled();
-});
-
 it('moves one slide to the right when the right button is pressed', () => {
   const moveRight = jest.spyOn(JumboSlider.prototype, 'moveRight');
   const wrapper = mount(<JumboSlider slides={slides} />);
@@ -62,4 +55,17 @@ it ('will only move to the left if there is a preceding slide', () => {
 
   expect(moveLeft).toHaveBeenCalled();
   expect(wrapper.state().activeSlide).toEqual(0);
+});
+
+it('will display only the active slide', () => {
+  const calculateTransform = jest.spyOn(JumboSlider.prototype, 'calculateTransform');
+  const wrapper = mount(<JumboSlider slides={slides} />);
+  wrapper.setState({ activeSlide: 0, slideWidth: 1000 });
+
+  expect(calculateTransform).toHaveBeenCalled();
+  expect(wrapper.find('.jumbo-slider__scroller ul').prop('style')).toEqual({'transform': 'translate3d(0px, 0px, 0px)'});
+
+  wrapper.setState({ activeSlide: 1 });
+
+  expect(wrapper.find('.jumbo-slider__scroller ul').prop('style')).toEqual({'transform': 'translate3d(-1000px, 0px, 0px)'});
 });

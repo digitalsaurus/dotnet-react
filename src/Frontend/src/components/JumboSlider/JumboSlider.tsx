@@ -11,12 +11,15 @@ export interface JumboSliderProps {
 
 export interface JumboSlideState {
   activeSlide: number;
+  slideWidth: number;
 }
 
 export default class JumboSlider extends React.Component<JumboSliderProps, JumboSlideState> {
-  state = {
-    activeSlide: 0
-  };  
+  public state = {
+    activeSlide: 0,
+    slideWidth: 0
+  };
+  public _scroller: React.RefObject<HTMLDivElement>;
   constructor(props: JumboSliderProps) {
     super(props);
 
@@ -24,10 +27,13 @@ export default class JumboSlider extends React.Component<JumboSliderProps, Jumbo
     this.moveRight = this.moveRight.bind(this);
     this.calculateTransform = this.calculateTransform.bind(this);
 
-    for (const i in props.slides) {
-      if (props.slides.hasOwnProperty(i)) {
-        this[`slide${i}`] = React.createRef();
-      }
+    this._scroller = React.createRef();
+  }
+  componentDidMount() {
+    const scroller = this._scroller.current;
+    if (scroller) {
+      const slideWidth = scroller.clientWidth;
+      this.setState({ slideWidth });
     }
   }
   moveLeft() {
@@ -43,15 +49,16 @@ export default class JumboSlider extends React.Component<JumboSliderProps, Jumbo
     }
   }
   calculateTransform() {
-    const test = '';
+    const x = this.state.activeSlide * this.state.slideWidth * -1;
+    return `translate3d(${x}px, 0px, 0px)`;
   }
   render() {
     const transform = this.calculateTransform();
     return (
       <section className="jumbo-slider">
-        <div className="jumbo-slider__scroller">
+        <div className="jumbo-slider__scroller" ref={this._scroller as any}>
           <button type="button" className="jumbo-slider__scroller__button--left" onClick={this.moveLeft}>Left</button>
-          <ul>
+          <ul style={{ transform }}>
             {this.props.slides.map((slide, i) => (
               <li key={i}>
                 <img src={slide.image} />
