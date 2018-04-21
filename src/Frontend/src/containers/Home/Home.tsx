@@ -1,5 +1,5 @@
 import * as React from 'react';
-import JumboSlider from 'components/JumboSlider/JumboSlider';
+import JumboSlider from '../../components/JumboSlider/JumboSlider';
 
 const Home = () => (
   <div>

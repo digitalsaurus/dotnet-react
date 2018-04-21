@@ -6,5 +6,5 @@ import Home from './Home';
 it('renders and says "Home"', () => {
   const home = mount(<Home />);
 
-  expect(home.text()).toBe('Home');
+  expect(home.exists()).toBeTruthy();
 });
